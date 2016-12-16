@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html language="es">
+<meta charset="UTF-8">
+<head>
+<title>ArtCodin></title>
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<!--Linkeo a CSSs-->
+  <link rel="stylesheet" type="text/css" href="css_tyles/estilo.css">
+  <link rel="stylesheet" type="text/css" href="css_tyles/responsive.css">
+  <link rel="stylesheet" type="text/css" href="css_tyles/elastic_grid.min.css"/>
+  <link rel="stylesheet" type="text/css" href="engine0/style.css"/>
+
+<!--Linkeo a JQuerys-->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/modernizr.custom.js"></script>
+  <script type="text/javascript" src="js/classie.js"></script>
+  <script type="text/javascript" src="js/elastic_grid.min.js"></script>
+  <script type="text/javascript" src="js/codigos.js"></script>
+
+
+</head>
+<!--Empieza Contenido General-->
+<body>
+<div id="pagina">
+  <!--Cabecera-->
+  <div id="cabeza">
+    <!--Espacio menú completo-->
+    <div id="menu">
+
+      <!--Menú contenedor para el responsive-->
+      <div id="menu-contenedor">
+
+        <!--NAV Completa, incluyendo responsive-->
+        <nav class="clearfix">
+        <ul class="clearfix">
+          <li><a href="index.html#pagina">Home</a></li>
+          <li><a href="index.html#Perfil">Perfil</a></li>
+          <li><a href="index.html#Formacion">Formación</a></li>
+          <li><a href="index.html#Habilidades">Skills</a></li>
+          <li><a href="index.html#Servicios">Servicios</a></li>
+          <li><a href="index.html#Portafolio">Portafolio</a></li>
+          <li><a href="index.html#Contactos">Contactos</a></li>
+          <li><a href="no-session.html">Acerca De</a></li>
+        </ul>
+        <a href="#" id="pull">Menu</a>
+        </nav>
+
+      </div>
+
+    </div>
+  </div>
+
+<!--Contenido de los DIV-->
+<div id="contenido">
+  <div id="Perfil">
+
+
+        <!--Validación formulario PHP-->
+        <section id="Form1">
+          <?php
+  session_start();
+    
+?>
+            <form action="actualizarperfil.php?id=<?php echo $_SESSION['usuario'];?>" method="post">
+            <?php
+            error_reporting(E_ALL ^ E_DEPRECATED);
+            $objConnect = mysql_connect("localhost","root","") or die("Error Connect to Database");
+            $objDB = mysql_select_db("db_codearting");
+            $strSQL = "SELECT * FROM registro WHERE nombreusuario = '".$_SESSION['usuario']."' ";
+            $objQuery = mysql_query($strSQL);
+            $objResult = mysql_fetch_array($objQuery);
+            if(!$objResult)
+            {
+            echo "Not found CustomerID=".$_SESSION['nombreusuario'];
+            }
+            else
+            {
+            ?>
+            <table width="600" border="1">
+                <tr>
+                    <th width="91"> <div align="center">nombreusuario </div></th>
+                    <th width="160"> <div align="center">Clave </div></th>
+                    <th width="198"> <div align="center">nombre </div></th>
+                    <th width="97"> <div align="center">apellido </div></th>
+                    <th width="70"> <div align="center">email </div></th>
+                    <th width="70"> <div align="center">edad </div></th>
+                    <th width="70"> <div align="center">Foto </div></th>
+                </tr>
+            <tr>
+                <td>
+                    <div align="center">
+                    <input type="text" name="txtnombreusuario" size="5" value="<?php echo $objResult["usuario"];?>"></div>             </td>
+                <td>
+                    <input type="password" name="txtClave" size="20" value="<?php echo $objResult["clave"];?>">
+                </td>
+                <td>
+                    <input type="text" name="txtNombre" size="20" value="<?php echo $objResult["nombre"];?>">
+                </td>
+                <td>
+                    <input type="text" name="txtApellido" size="20" value="<?php echo $objResult["apellido"];?>">
+                </div>
+                </td>
+                <td>
+                    <input type="text" name="txtEmail" size="20" value="<?php echo $objResult["email"];?>">
+                </td> 
+                <td>
+                    <input type="text" name="txtDireccion" size="20" value="<?php echo $objResult["direccion"];?>">
+                </td>
+            </tr>
+            </table>
+            <input type="submit" name="submit" value="submit">
+            <?php
+            }
+            mysql_close($objConnect);
+            ?>
+            </form>
+
+
+          </section> 
+  </div>
+
+  <!--Social media-->
+  <div id="socialmedia">
+
+    <section id="conteiner">
+    <h3>Social</h3>
+    <br>
+
+    <div id="d1P">
+      <a href="https://www.facebook.com/pages/ArtCodin/366350956905188"><img src="images/icons/Facebook.png" height="60" width="60" art="Facebook"></a>
+      <br>
+      <h4>Facebook</h4>
+    </div>
+
+    <div id="d1P">
+      <a href="https://instagram.com/andriwzcastillo/"><img src="images/icons/Instagram.png" height="60" width="60" art="Instragram"></a>
+      <br>
+      <h4>Instagram</h4>
+    </div>
+
+    <div id="d1P">
+      <a href="mailto:andriwscastillo@gmail.com"><img src="images/icons/Mail.png" height="60" width="60" art="Correo"></a>
+      <br>
+      <h4>Coreo Elecronico</h4>
+    </div>
+
+    </section>
+
+  </div>
+</div>
+
+<!--Linko de JQuerys-->
+<script type="text/javascript" src="js/jquerys.js"></script>
+<script language="javascript" src="js/validacion.js"></script>
+
+<!--Pie de página-->
+<div id="pie">
+  <p>
+    <p>
+      No Copyright&copy; Infringement | DHTML-C1-ITLA
+    </p>
+    <br>
+    <a href="registrarnombreusuario.html#Perfil">Registrate</a> | <a href="sugerencias.html#Perfil">Sugerencias</a> | <a href="contactanos.html#Perfil">Contactos</a>
+  </p>
+</div>
+
+</div>
+<!--Final de página-->
+</body>
+</html>

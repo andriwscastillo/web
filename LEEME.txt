@@ -1,0 +1,19 @@
+Autor: Andriws Castillo
+Proyecto: ArtCodin>
+Softwares necesarios: 
+
+	Sublime Text 2 Version 2.02
+	Mozilla Firefox Version 36.0.4
+	Google Chrome Version 41.0.2272.118 m
+	Adobe Illustrator CS6
+	Adobe Photoshop CS6
+	WampServer Version 2.4
+	Smtp4dev Version 2.0.9
+	WOW Slider Version 7.8
+
+Funcionamiento del sitio: 
+ArtCodin>, CV website, al estilo Single Page Website, diseñada y desarrollada basada en HTML5, CC3 y PHP, por Andriws Castillo para Andriws Castillo.
+
+Funcionamiento y diseño simple y armonico, menejada directamente desde un menú con animaciones internas. Multiplataformas, Full-Reponsive.
+
+AVISO: Si se está manejando la web desde un servidor local (localhost) además de que se necesita un servidor local, se necesita un servidor SMT para cuando el usuario se registre, la aplicación le envié el correo de bienvenida.
